@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD SYSTEM</title>
+    <link
+      rel="shortcut icon"
+      href="images/icon crud.jpeg"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div class="w-50 bg-color mx-auto my-2 p-2">
+      <h2 class="text-center text-white">CRUD SYSTEM</h2>
+
+      <div class="form-floating my-1">
+        <input
+          type="text"
+          class="form-control"
+          id="productName"
+          placeholder=""
+          oninput="validationInputs( this , 'msgName'   )"
+        />
+        <label for="productName">product Name</label>
+
+        <p id="msgName" class="alert alert-danger d-none">
+          product Name dosen`t Match
+        </p>
+      </div>
+
+      <div class="form-floating my-1">
+        <input
+          type="number"
+          class="form-control"
+          id="productPrice"
+          placeholder=""
+          oninput="validationInputs( this , 'msgPrice'   )"
+        />
+        <label for="productPrice">product Price</label>
+
+        <p id="msgPrice" class="alert alert-danger d-none">
+          product Price dosen`t Match
+        </p>
+      </div>
+
+      <div class="form-floating my-1">
+        <input
+          list="Category"
+          type="text"
+          class="form-control"
+          id="productCategory"
+          placeholder=""
+          oninput="validationInputs( this , 'msgCategory'   )"
+        />
+        <label for="productCategory">product Category</label>
+
+        <datalist id="Category">
+          <option value="TV"></option>
+          <option value="Screens"></option>
+          <option value="Samsung"></option>
+          <option value="Toshiba"></option>
+          <option value="Mobile"></option>
+          <option value="Electronic"></option>
+        </datalist>
+
+        <p id="msgCategory" class="alert alert-danger d-none">
+          product Category dosen`t Match
+        </p>
+      </div>
+
+      <div class="form-floating my-1">
+        <textarea
+          style="height: 100px"
+          class="form-control"
+          id="productDescription"
+          placeholder=""
+          oninput="validationInputs( this , 'msgDescription'   )"
+        ></textarea>
+        <label for="productDescription">product Description</label>
+
+        <p id="msgDescription" class="alert alert-danger d-none">
+          product Description dosen`t Match
+        </p>
+      </div>
+
+      <div class="form-floating my-1">
+        <input
+          type="file"
+          class="form-control"
+          id="productImage"
+          placeholder=""
+        />
+        <label for="productImage">product Image</label>
+
+        <p id="msgImage" class="alert alert-danger d-none">
+          product Image dosen`t Match
+        </p>
+      </div>
+
+      <div class="mt-3">
+        <button onclick="AddProduct()" id="productAdd" class="btn btn-light">
+          Add product
+        </button>
+        <button
+          onclick="UpdateData( )"
+          id="productUpdate"
+          class="btn btn-warning d-none"
+        >
+          Update Product
+        </button>
+      </div>
+    </div>
+
+    <div class="w-50 bg-color mx-auto my-2 p-2">
+      <div class="form-floating my-1">
+        <input
+          type="search"
+          class="form-control"
+          id="productsSearch"
+          placeholder=""
+          oninput="displayData()"
+        />
+        <label for="productsSearch">Search By Name...</label>
+      </div>
+    </div>
+
+    <div>
+      <table class="table table-striped w-50 mx-auto text-center table-dark">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="tableData"></tbody>
+      </table>
+    </div>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>
